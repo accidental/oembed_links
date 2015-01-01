@@ -66,7 +66,7 @@ end
 # To get started quickly in Rails:
 
 Copy the included `oembed_links_example.yml` file to `Rails.root/config/oembed_links.yml`,
-add a dependency to the gem in your Gemfile ( `gem "oembed_links"` )
+add a dependency to the gem in your Gemfile ( `gem 'oembed_links', :git => 'git://github.com/accidental/oembed_links.git'` )
 and add the following to an initializer (e.g. `/config/initializers/register_oembed_links.rb`):
 
 ``` ruby

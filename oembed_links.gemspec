@@ -22,7 +22,6 @@ Gem::Specification.new do |s|
     s.specification_version = 2
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<json>)
       s.add_development_dependency(%q<hoe>, [">= 1.8.0"])
       s.add_dependency(%q<json>)
     else

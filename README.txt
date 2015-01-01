@@ -13,9 +13,7 @@ may also configure the library programmatically (see rdocs).
 == REQUIREMENTS:
 
 You must have the JSON gem installed to use oembed_links.
-If you have the libxml-ruby gem installed, oembed_links will use that;
-it will fall back to hpricot if that is installed, and finally REXML
-if you have nothing else.  
+I've removed support for XML. All providers must use JSON.
 
 == SYNOPSIS:
 
@@ -25,7 +23,7 @@ require 'oembed_links'
 OEmbed.register({:method => "NetHTTP"},
                 {:flickr => "http://www.flickr.com/services/oembed/",
                  :vimeo => "http://www.vimeo.com/api/oembed.{format}"},
-                {:flickr => { :format => "xml", :schemes => ["http://www.flickr.com/photos/*"]},
+                {:flickr => { :format => "json", :schemes => ["http://www.flickr.com/photos/*"]},
                  :vimeo => { :format => "json", :schemes => ["http://www.vimeo.com/*"]}})
 
 # Simple transformation

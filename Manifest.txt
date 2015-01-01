@@ -10,10 +10,7 @@ lib/oembed_links/fetchers
 lib/oembed_links/fetchers/net_http.rb
 lib/oembed_links/fetchers/ruby_tubesday.rb
 lib/oembed_links/formatters
-lib/oembed_links/formatters/hpricot_xml.rb
 lib/oembed_links/formatters/json.rb
-lib/oembed_links/formatters/lib_xml.rb
-lib/oembed_links/formatters/ruby_xml.rb
 lib/oembed_links/response.rb
 lib/oembed_links/template_resolver.rb
 oembed_links.gemspec

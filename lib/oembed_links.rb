@@ -1,7 +1,6 @@
 require 'cgi'
 require 'uri'
 require 'yaml'
-require 'oembed_links/template_resolver'
 require 'oembed_links/response'
 
 # The OEmbed class is the interface to class registration functions
@@ -161,7 +160,6 @@ class OEmbed
   # Load the default JSON and XML formatters, autodetecting
   # formatters when possible; load the default fetcher as well
   def self.load_default_libs(*ignore_formats)
-    self.autodetect_xml_formatters(*ignore_formats)
     require 'oembed_links/formatters/json'
     self.register_formatter(OEmbed::Formatters::JSON)
     require 'oembed_links/fetchers/net_http'
@@ -292,38 +290,6 @@ class OEmbed
     end
 
     return ret
-  end
-
-  # Determine the XML formatter that can be loaded for
-  # this system based on what libraries are present
-  def self.autodetect_xml_formatters(*ignore)
-    loaded_lib = false
-    unless ignore.include? "libxml"
-      begin
-        require 'libxml'
-        require 'oembed_links/formatters/lib_xml'
-        self.register_formatter(OEmbed::Formatters::LibXML)
-        loaded_lib = true
-      rescue LoadError
-        # Silently fail: LibXML XML formatter not found
-      end
-    end
-    unless loaded_lib || ignore.include?("hpricot")
-      begin
-        require 'hpricot'
-        require 'oembed_links/formatters/hpricot_xml'
-        self.register_formatter(OEmbed::Formatters::HpricotXML)        
-        loaded_lib = true
-      rescue LoadError
-        # Silently fail: Hpricot XML formatter not found
-      end      
-    end
-    unless loaded_lib || ignore.include?("rexml")
-      require 'oembed_links/formatters/ruby_xml'
-      self.register_formatter(OEmbed::Formatters::RubyXML) 
-      loaded_lib = true
-    end
-    raise StandardError.new("No XML formatter could be autodetected") unless loaded_lib
   end
 
   private

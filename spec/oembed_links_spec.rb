@@ -63,18 +63,6 @@ describe OEmbed, "registration tasks" do
     OEmbed.transform("http://fake/bar/baz").should == "http://fakesville"
   end
 
-  it "should allow selective loading of formatters through the load_default_libs function" do
-    OEmbed.clear_registrations
-    OEmbed.load_default_libs
-    OEmbed.instance_variable_get("@formatters")["xml"].class.should == OEmbed::Formatters::LibXML
-    OEmbed.clear_registrations
-    OEmbed.load_default_libs("libxml")
-    OEmbed.instance_variable_get("@formatters")["xml"].class.should == OEmbed::Formatters::HpricotXML
-    OEmbed.clear_registrations
-    OEmbed.load_default_libs("libxml", "hpricot")
-    OEmbed.instance_variable_get("@formatters")["xml"].class.should == OEmbed::Formatters::RubyXML    
-  end
-
   it "should support the hpricot formatter" do
     OEmbed.clear_registrations
     OEmbed.load_default_libs("libxml")

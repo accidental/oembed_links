@@ -1,9 +1,9 @@
 # DESCRIPTION:
 
-This is the oembed_links gem.  It allows you to easily parse text and
+This is the oembed_links gem, updated to work in Rails 3.  It allows you to easily parse text and
 query configured providers for embedding information on the links
 inside the text. A sample configuration file for configuring the
-library has been included (oembed_links_example.yml), though you
+library has been included (`oembed_links_example.yml`), though you
 may also configure the library programmatically (see rdocs).
 
 # REQUIREMENTS:
@@ -38,7 +38,7 @@ OEmbed.transform("This is my flickr URL http://www.flickr.com/photos/bees/234162
 end
 ```
 
-# Transformation to drive Amazon links to our department affiliate code and help us buy some laptops (hint)
+# Transformation to drive Amazon links to our department affiliate code
 ``` ruby
 OEmbed.register_provider(:oohembed,
                          "http://oohembed.com/oohembed/",
@@ -63,7 +63,7 @@ OEmbed.transform("Here is a link to amazon http://www.amazon.com/Complete-Aubrey
 end
 ```
 
-To get started quickly in Rails:
+# To get started quickly in Rails:
 
 Copy the included `oembed_links_example.yml` file to `Rails.root/config/oembed_links.yml`,
 add a dependency to the gem in your Gemfile ( `gem "oembed_links"` )
@@ -82,7 +82,7 @@ end
 Then start your server.  That's it.  
 
 
-== LICENSE:
+# LICENSE:
 
 (The MIT License)
 

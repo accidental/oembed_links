@@ -20,7 +20,3 @@ spec
 spec/oembed_links_spec.rb
 spec/oembed_links_test.yml
 spec/spec_helper.rb
-spec/templates
-spec/templates/test.haml
-spec/templates/test.html.erb
-spec/templates/test.rhtml

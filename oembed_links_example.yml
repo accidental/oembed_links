@@ -3,16 +3,18 @@
 
 :providers:
   :oohembed: "http://oohembed.com/oohembed/"
-  :vimeo: "http://www.vimeo.com/api/oembed.{format}"
+  :vimeo: "http://vimeo.com/api/oembed.{format}"
   :hulu: "http://www.hulu.com/api/oembed.{format}"
   :flickr: "http://www.flickr.com/services/oembed"
   :viddler: "http://lab.viddler.com/services/oembed/"
   :youtube: "http://www.youtube.com/oembed"
+  :dailymotion: "http://www.dailymotion.com/services/oembed"
 
 :youtube:
   :format: "json"
   :schemes: 
-    - "http://www.youtube.com/watch?v=*"
+    - "(http|https)://(www.y|y)outube.com/watch?*"
+    - "(http|https)://youtu.be/*"
 
 :oohembed:
   :format: "json"
@@ -21,7 +23,6 @@
     - "http://*.amazon.(com|co.uk|de|ca|jp)/(gp/product|o/ASIN|obidos/ASIN|dp)/*"        
     - "http://*.collegehumor.com/video:*"
     - "http://*.funnyordie.com/videos/*"
-    - "http://video.google.com/videoplay?*"
     - "http://*.imdb.com/title/tt*/"
     - "http://*.metacafe.com/watch/*"
     - "http://*.slideshare.net/*"
@@ -32,20 +33,25 @@
 :vimeo:
   :format: "json"
   :schemes:
-    - "http://vimeo.com/*"
-    - "http://vimeo.com/groups/*/videos/*"
+    - "(http|https)://(www.v|v)imeo.com/*"
+    - "(http|https)://(www.v|v)imeo.com/groups/*/videos/*"
 
 :hulu:
-  :format: "xml"
+  :format: "json"
   :schemes:
     - "http://www.hulu.com/watch/*"
 
 :flickr:
-  :format: "xml"
+  :format: "json"
   :schemes:
     - "http://*.flickr.com/*"
     
 :viddler:
-  :format: "xml"
+  :format: "json"
   :schemes:
     - "http://*.viddler.com/*"
+
+:dailymotion:
+  :format: "json"
+  :schemes:
+    - "(http|https)://(www.d|d)ailymotion.com/video/*"

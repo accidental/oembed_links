@@ -2,3 +2,5 @@ Thanks to the Indianapolis Star I&D department for open sourcing this; most nota
 Thanks to Kyle Slattery for adding Viddler to the example oembed_links.yml
 
 Chris.Zelenak!indystar!com
+
+Peter Gerard stripped out old code and updated for use with Rails 3.

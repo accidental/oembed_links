@@ -105,7 +105,6 @@ describe OEmbed, "transforming functions" do
     }.to_json)
     OEmbed.register_yaml_file(File.join(File.dirname(__FILE__), "oembed_links_test.yml"))
     @current_path = File.dirname(__FILE__)
-    @template_path = File.join(@current_path, "templates")
   end
 
   it "should always give priority to provider conditional blocks" do

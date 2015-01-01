@@ -1,3 +1,10 @@
+=== 0.2 / 2015-01-01
+
+* Removed Template feature
+* Removed XML support
+* Added suport for Rails 3
+* Updated Readme and sample yaml file
+
 === 0.1.6 / 2009-02-01
 
 * 1 minor enhancement

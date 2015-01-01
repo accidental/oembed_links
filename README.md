@@ -62,39 +62,21 @@ end
 
 To get started quickly in Rails:
 
-Copy the included oembed_links_example.yml file to RAILS_ROOT/config/oembed_links.yml,
-add a dependency to the gem in your environment.rb ( config.gem "oembed_links" )
-and start your server.  That's it.  If you'd like to transform the oembedded content via
-templates, you can do so using the following syntax:
+Copy the included oembed_links_example.yml file to Rails.root/config/oembed_links.yml,
+add a dependency to the gem in your Gemfile ( gem "oembed_links" )
+and add the following to an initializer:
 
-OEmbed.transform(text_to_transform) do |res, url|
-  res.video?(:template => "oembed/video")
-  res.from?(:a_provider, :template => "a_provider/oembed")
-  res.matches?(/some_regex/, :template => "shared/oembed_link")
-  res.any?(:template => "shared/oembed_link")
+``` require 'oembed_links'
+
+yaml_file = File.join(Rails.root, "config", "oembed_links.yml")
+if File.exists?(yaml_file)
+  OEmbed::register_yaml_file(yaml_file)
 end
+```
 
-This presumes you have a directory in your Rails views directory called "oembed", and a file
-of the form "video.html.erb" or "video.rhtml".  If you are not using Rails, you may still use the
-template functionality, but you must specify the full path to the template. When you are integrating
-with Rails, you may use any template library that is installed for your Rails app; when you are using
-the absolute filename method, you only have access to ERB, Erubis or HAML.
 
-As of version 0.0.9, your Rails oembed templates have access to all the traditional Rails template helper methods
-(such as Rails' link_to, image_tag, etc.); the templates are processed using the Rails template rendering
-pipeline, and as such may even do evil things like access your Models.
+Then start your server.  That's it.  
 
-See the RDocs for OEmbed::TemplateResolver for more information regarding templates and oembed_links.
-
-See the rdocs for much more complete examples.  The specs directory has some examples of programmatic
-use, but the test to code ratio is slim atm.
-
-== INSTALL:
-
-sudo gem install oembed_links
-(from github)
-gem sources -a http://gems.github.com
-sudo gem install netshade-oembed_links
 
 == LICENSE:
 

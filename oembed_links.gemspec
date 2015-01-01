@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Indianapolis Star MD&D", "Peter Gerard"]
   s.date = %q{2008-10-16}
-  s.description = %q{Easy OEmbed integration for Ruby (and Rails).}
+  s.description = %q{Easy OEmbed integration for Ruby (and Rails 3).}
   s.email = ["bugs@indy.com"]
   s.extra_rdoc_files = ["History.txt", "Manifest.txt", "README.txt"]
   s.files = ["CREDIT", "History.txt", "Manifest.txt", "README.txt", "Rakefile", "lib", "lib/oembed_links", "lib/oembed_links.rb", "lib/oembed_links/fetchers", "lib/oembed_links/fetchers/net_http.rb", "lib/oembed_links/fetchers/ruby_tubesday.rb", "lib/oembed_links/fetchers/curb.rb", "lib/oembed_links/formatters", "lib/oembed_links/formatters/json.rb", "lib/oembed_links/response.rb", "oembed_links.gemspec", "oembed_links_example.yml", "rails", "rails/init.rb", "spec", "spec/oembed_links_spec.rb", "spec/oembed_links_test.yml", "spec/spec_helper.rb", "spec/templates", "spec/templates/test.haml", "spec/templates/test.html.erb", "spec/templates/test.rhtml"]

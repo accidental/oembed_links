@@ -1,8 +1,4 @@
-= oembed_links
-
-* http://indystar.com/
-
-== DESCRIPTION:
+# DESCRIPTION:
 
 This is the oembed_links gem.  It allows you to easily parse text and
 query configured providers for embedding information on the links
@@ -10,33 +6,40 @@ inside the text. A sample configuration file for configuring the
 library has been included (oembed_links_example.yml), though you
 may also configure the library programmatically (see rdocs).
 
-== REQUIREMENTS:
+# REQUIREMENTS:
 
 You must have the JSON gem installed to use oembed_links.
-I've removed support for XML. All providers must use JSON.
+I've removed support for XML and templates. All providers must use JSON.
 
-== SYNOPSIS:
+# SYNOPSIS:
 
 To get started quickly (in irb):
 
+``` ruby
 require 'oembed_links'
 OEmbed.register({:method => "NetHTTP"},
                 {:flickr => "http://www.flickr.com/services/oembed/",
                  :vimeo => "http://www.vimeo.com/api/oembed.{format}"},
                 {:flickr => { :format => "json", :schemes => ["http://www.flickr.com/photos/*"]},
                  :vimeo => { :format => "json", :schemes => ["http://www.vimeo.com/*"]}})
+```
 
 # Simple transformation
+``` ruby
 OEmbed.transform("This is my flickr URL http://www.flickr.com/photos/bees/2341623661/ and all I did was show the URL straight to the picture")
+```
 
 # More complex transformation
+``` ruby
 OEmbed.transform("This is my flickr URL http://www.flickr.com/photos/bees/2341623661/ and this is a vimeo URL http://www.vimeo.com/757219 wow neat") do |r, url|
   r.audio? { |a| "It's unlikely flickr or vimeo will give me audio" }
   r.photo? { |p| "<img src='#{p["url"]}' alt='Sweet, a photo named #{p["title"]}' />" }
   r.from?(:vimeo) { |v| "<div class='vimeo'>#{v['html']}</div>" }
 end
+```
 
 # Transformation to drive Amazon links to our department affiliate code and help us buy some laptops (hint)
+``` ruby
 OEmbed.register_provider(:oohembed,
                          "http://oohembed.com/oohembed/",
                          "json",
@@ -58,15 +61,16 @@ OEmbed.transform("Here is a link to amazon http://www.amazon.com/Complete-Aubrey
       EOHTML
     }
 end
-
+```
 
 To get started quickly in Rails:
 
-Copy the included oembed_links_example.yml file to Rails.root/config/oembed_links.yml,
-add a dependency to the gem in your Gemfile ( gem "oembed_links" )
+Copy the included `oembed_links_example.yml` file to `Rails.root/config/oembed_links.yml`,
+add a dependency to the gem in your Gemfile ( `gem "oembed_links"` )
 and add the following to an initializer:
 
-``` require 'oembed_links'
+``` ruby
+require 'oembed_links'
 
 yaml_file = File.join(Rails.root, "config", "oembed_links.yml")
 if File.exists?(yaml_file)

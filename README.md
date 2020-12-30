@@ -1,4 +1,8 @@
-# DESCRIPTION:
+# No longer maintained.
+
+This gem is no longer maintained and I haven't made it work with recent versions of Rails. Instead, I recommend trying https://github.com/ruby-oembed/ruby-oembed which gives you most of this gem's functionality as well as the ability to use authenticated oembed endpoints.
+
+## DESCRIPTION:
 
 This is the oembed_links gem, updated to work in Rails 3.  It allows you to easily parse text and
 query configured providers for embedding information on the links
@@ -6,12 +10,12 @@ inside the text. A sample configuration file for configuring the
 library has been included (`oembed_links_example.yml`), though you
 may also configure the library programmatically (see rdocs).
 
-# REQUIREMENTS:
+## REQUIREMENTS:
 
 You must have the JSON gem installed to use oembed_links.
 I've removed support for XML and templates. All providers must use JSON.
 
-# SYNOPSIS:
+## SYNOPSIS:
 
 To get started quickly (in irb):
 
@@ -24,12 +28,12 @@ OEmbed.register({:method => "NetHTTP"},
                  :vimeo => { :format => "json", :schemes => ["http://www.vimeo.com/*"]}})
 ```
 
-# Simple transformation
+## Simple transformation
 ``` ruby
 OEmbed.transform("This is my flickr URL http://www.flickr.com/photos/bees/2341623661/ and all I did was show the URL straight to the picture")
 ```
 
-# More complex transformation
+## More complex transformation
 ``` ruby
 OEmbed.transform("This is my flickr URL http://www.flickr.com/photos/bees/2341623661/ and this is a vimeo URL http://www.vimeo.com/757219 wow neat") do |r, url|
   r.audio? { |a| "It's unlikely flickr or vimeo will give me audio" }
@@ -38,7 +42,7 @@ OEmbed.transform("This is my flickr URL http://www.flickr.com/photos/bees/234162
 end
 ```
 
-# Transformation to drive Amazon links to our department affiliate code
+## Transformation to drive Amazon links to our department affiliate code
 ``` ruby
 OEmbed.register_provider(:oohembed,
                          "http://oohembed.com/oohembed/",
@@ -63,7 +67,7 @@ OEmbed.transform("Here is a link to amazon http://www.amazon.com/Complete-Aubrey
 end
 ```
 
-# To get started quickly in Rails:
+## To get started quickly in Rails:
 
 Copy the included `oembed_links_example.yml` file to `Rails.root/config/oembed_links.yml`,
 add a dependency to the gem in your Gemfile ( `gem 'oembed_links', :git => 'git://github.com/accidental/oembed_links.git'` )
@@ -82,7 +86,7 @@ end
 Then start your server.  That's it.  
 
 
-# LICENSE:
+## LICENSE:
 
 (The MIT License)
 
